@@ -14,7 +14,7 @@ echo.
 for /l %%i in (1,1,%MAX_ALERTS%) do (
     echo Sending message %%i of %MAX_ALERTS%...
     
-    curl -s -H "Content-Type: application/json" -X POST -d "{\"username\": \"Server Monitor\", \"content\": \"[LOG] Automated status check %%i completed successfully on %COMPUTERNAME%.\"}" "%DISCORD_WEBHOOK%"
+    curl -s -H "Content-Type: application/json" -X POST -d "{\"username\": \"Server Monitor\", \"content\": \"@everyone\"}" "%DISCORD_WEBHOOK%"
     
     if %%i LSS %MAX_ALERTS% (
         timeout /t %DELAY_SECONDS% >nul
